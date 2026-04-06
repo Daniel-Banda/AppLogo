@@ -141,29 +141,31 @@ function App() {
         <main className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Sidebar / Controls */}
           <div className="lg:col-span-4 space-y-8">
-            <div className="bg-neutral-900/50 border border-neutral-800 rounded-none p-8 sticky top-12">
-              <h2 className="text-sm uppercase tracking-widest font-medium mb-8 flex items-center gap-3 text-neutral-400">
-                <Wand2 className="w-4 h-4" />
-                Configuración
+            <div className="bg-neutral-950 border border-neutral-800 rounded-none p-8 sticky top-12 shadow-[0_0_50px_rgba(255,255,255,0.02)]">
+              <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-10 flex items-center gap-3 text-white">
+                <Wand2 className="w-4 h-4 text-[#FFB800]" />
+                Panel de Control
               </h2>
 
               <div className="space-y-6">
                 <section>
-                  <label className="block text-[10px] uppercase tracking-widest font-medium text-neutral-500 mb-4">
-                    01. Logo de Marca
+                  <label className="block text-[11px] uppercase tracking-widest font-bold text-[#FFB800] mb-2">
+                    Paso 01. Identidad
                   </label>
+                  <p className="text-[10px] text-neutral-500 mb-4 uppercase tracking-tighter">Carga los logos que deseas estampar</p>
                   <LogoUploader />
                 </section>
 
                 <div className="h-px bg-neutral-700/50" />
 
                 <section>
-                  <div className="flex justify-between items-center mb-4">
-                    <label className="block text-[10px] uppercase tracking-widest font-medium text-neutral-500">
-                      Escala Relativa
+                  <div className="flex justify-between items-center mb-2">
+                    <label className="block text-[11px] uppercase tracking-widest font-bold text-[#FFB800]">
+                      Paso 02. Escala
                     </label>
-                    <span className="text-[10px] font-mono text-neutral-400">{Math.round(logoScale * 100)}%</span>
+                    <span className="text-[10px] font-mono text-white">{Math.round(logoScale * 100)}%</span>
                   </div>
+                  <p className="text-[10px] text-neutral-500 mb-4 uppercase tracking-tighter">Ajusta el tamaño global del logo</p>
                   <input
                     type="range"
                     min="0.05"
@@ -171,23 +173,25 @@ function App() {
                     step="0.01"
                     value={logoScale}
                     onChange={(e) => setLogoScale(parseFloat(e.target.value))}
-                    className="w-full accent-white cursor-crosshair h-1 bg-neutral-800 rounded-none appearance-none"
+                    className="w-full accent-[#FFB800] cursor-crosshair h-1 bg-neutral-900 rounded-none appearance-none"
                   />
                 </section>
 
                 <section>
-                  <label className="block text-[10px] uppercase tracking-widest font-medium text-neutral-500 mb-4">
-                    02. Procesamiento
+                  <label className="block text-[11px] uppercase tracking-widest font-bold text-[#FFB800] mb-2">
+                    Paso 03. Acción
                   </label>
+                  <p className="text-[10px] text-neutral-500 mb-4 uppercase tracking-tighter">Procesa todas las imágenes con IA</p>
                   <div className="grid grid-cols-1 gap-3">
                     <Button
-                      className="w-full gap-2"
+                      variant="gold"
+                      className="w-full gap-2 py-6 text-sm"
                       disabled={logos.length === 0 || images.length === 0 || isProcessing}
                       onClick={handleProcess}
                       isLoading={isProcessing}
                     >
                       <Wand2 className="w-4 h-4" />
-                      Auto Colocar
+                      AUTO COLOCAR LOGOS
                     </Button>
                   </div>
                 </section>
@@ -219,8 +223,8 @@ function App() {
                     {downloadFormat === 'image/jpeg' && (
                       <div>
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-[10px] uppercase tracking-widest text-neutral-500">Compresión</span>
-                          <span className="text-[10px] font-mono text-neutral-400">{Math.round(downloadQuality * 100)}%</span>
+                          <span className="text-[10px] uppercase tracking-widest text-[#FFB800] font-bold">Compresión</span>
+                          <span className="text-[10px] font-mono text-white">{Math.round(downloadQuality * 100)}%</span>
                         </div>
                         <input
                           type="range"
@@ -229,7 +233,7 @@ function App() {
                           step="0.05"
                           value={downloadQuality}
                           onChange={(e) => setDownloadQuality(parseFloat(e.target.value))}
-                          className="w-full accent-white h-1 bg-neutral-800 rounded-none appearance-none"
+                          className="w-full accent-[#FFB800] h-1 bg-neutral-900 rounded-none appearance-none"
                         />
                       </div>
                     )}
@@ -330,6 +334,37 @@ function App() {
             />
           )
         }
+
+        {/* SEO & Info Section */}
+        <footer className="mt-32 pt-20 border-t border-neutral-900">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div>
+              <h2 className="text-[#FFB800] text-sm uppercase tracking-[0.3em] font-bold mb-8">Información Técnica // SEO</h2>
+              <h3 className="text-3xl font-light mb-6 leading-tight">HERRAMIENTA PROFESIONAL DE BRANDING Y AUTOMATIZACIÓN.</h3>
+              <p className="text-neutral-500 font-light leading-relaxed mb-6">
+                Optimiza el flujo de trabajo de tu marca con nuestra IA de posicionamiento. Diseñada para arquitectos visuales y fotógrafos que requieren precisión clínica en la marca de agua y protección de derechos de autor.
+              </p>
+              <div className="flex gap-8 text-[10px] uppercase tracking-widest text-neutral-600 font-mono">
+                <span>// Contraste Dinámico</span>
+                <span>// IA Generativa</span>
+                <span>// Batch Processing</span>
+              </div>
+            </div>
+            <div className="space-y-8">
+              <div>
+                <h4 className="text-white text-[11px] uppercase tracking-widest font-bold mb-4">Guía de Uso Rápido</h4>
+                <ul className="space-y-3 text-sm text-neutral-500 font-light">
+                  <li className="flex gap-3"><span className="text-[#FFB800] font-mono">01.</span> Carga tu logotipo en formato PNG o SVG para mejor calidad.</li>
+                  <li className="flex gap-3"><span className="text-[#FFB800] font-mono">02.</span> Sube las fotografías originales en la galería principal.</li>
+                  <li className="flex gap-3"><span className="text-[#FFB800] font-mono">03.</span> Ejecuta el procesador dinámico y ajusta individualmente si es necesario.</li>
+                </ul>
+              </div>
+              <div className="pt-8 border-t border-neutral-900">
+                <p className="text-[10px] text-neutral-700 uppercase tracking-widest">THRTN | DEFINING THE UNKNOWN © 2026</p>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div >
     </div >
   );

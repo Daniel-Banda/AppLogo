@@ -28,11 +28,14 @@ export const ImageUploader = () => {
 
     return (
         <div className="w-full space-y-4">
-            <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xs uppercase tracking-[0.2em] font-medium text-neutral-500">Imágenes // {images.length} de 100</h2>
+            <div className="flex justify-between items-center mb-10">
+                <div className="border-l-2 border-[#FFB800] pl-4">
+                    <h2 className="text-xs uppercase tracking-[0.3em] font-bold text-white mb-2">Galería de Trabajo</h2>
+                    <p className="text-[10px] text-neutral-500 uppercase tracking-widest">Sube las fotografías que deseas procesar // {images.length} de 100</p>
+                </div>
                 {images.length > 0 && (
-                    <Button variant="ghost" size="sm" onClick={() => images.forEach(() => removeImage(0))} className="text-[10px] uppercase tracking-widest">
-                        Eliminar Todas
+                    <Button variant="ghost" size="sm" onClick={() => images.forEach(() => removeImage(0))} className="text-[10px] uppercase tracking-widest text-[#FFB800] hover:bg-[#FFB800]/10">
+                        Limpiar Galería
                     </Button>
                 )}
             </div>
@@ -40,19 +43,19 @@ export const ImageUploader = () => {
             <div
                 {...getRootProps()}
                 className={cn(
-                    "border border-dashed p-12 flex flex-col items-center justify-center transition-all duration-500 cursor-crosshair min-h-[300px] border-neutral-800",
-                    isDragActive ? "border-white bg-white/5" : "hover:border-neutral-700 bg-black/40",
+                    "border border-dashed p-16 flex flex-col items-center justify-center transition-all duration-500 cursor-crosshair min-h-[400px] border-neutral-800",
+                    isDragActive ? "border-[#FFB800] bg-[#FFB800]/5" : "hover:border-neutral-700 bg-black/40",
                     images.length >= 100 && "opacity-50 cursor-not-allowed"
                 )}
             >
                 <input {...getInputProps()} />
-                <div className="p-6 border border-neutral-800 rounded-none mb-6">
-                    <Upload className="w-6 h-6 text-neutral-600" />
+                <div className="p-8 border border-neutral-800 rounded-none mb-8 group-hover:border-[#FFB800] transition-colors">
+                    <Upload className={cn("w-8 h-8 transition-colors", isDragActive ? "text-[#FFB800]" : "text-neutral-700")} />
                 </div>
-                <p className="text-sm uppercase tracking-widest font-light text-neutral-400 mb-2">
-                    {isDragActive ? "Suelte para Subir" : "Arrastre Archivos Originales"}
+                <p className="text-base uppercase tracking-[0.2em] font-light text-white mb-3">
+                    {isDragActive ? "Suelte los Archivos" : "Deposite sus Imágenes Aquí"}
                 </p>
-                <p className="text-[10px] uppercase tracking-widest text-neutral-600">O haga clic para navegar</p>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-[#FFB800] font-bold">Arquitectura de Procesamiento Masivo</p>
             </div>
 
             <AnimatePresence>

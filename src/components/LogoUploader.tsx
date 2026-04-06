@@ -31,8 +31,8 @@ export const LogoUploader = () => {
             {/* Active Logos */}
             <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                    <h3 className="text-[10px] uppercase tracking-widest font-medium text-neutral-500">Biblioteca // {logos.length}/3</h3>
-                    <p className="text-[9px] uppercase tracking-tighter text-neutral-600">Auto-Contraste</p>
+                    <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#FFB800]">Biblioteca // {logos.length} de 3</h3>
+                    <p className="text-[9px] uppercase tracking-tighter text-neutral-400">Selección Automática</p>
                 </div>
 
                 <div className="grid grid-cols-3 gap-2">
@@ -48,7 +48,7 @@ export const LogoUploader = () => {
                             <Button
                                 variant="ghost"
                                 size="sm"
-                                className="absolute -top-1 -right-1 w-5 h-5 p-0 rounded-none bg-black text-neutral-500 hover:text-white border border-neutral-800"
+                                className="absolute -top-1 -right-1 w-5 h-5 p-0 rounded-none bg-black text-neutral-500 hover:text-[#FFB800] border border-neutral-800"
                                 onClick={() => removeLogo(index)}
                             >
                                 <X className="w-2.5 h-2.5" />
@@ -61,11 +61,11 @@ export const LogoUploader = () => {
                             {...getRootProps()}
                             className={cn(
                                 "border border-dashed p-2 flex flex-col items-center justify-center transition-all cursor-crosshair text-center aspect-square border-neutral-800",
-                                isDragActive ? "border-white bg-white/5" : "hover:border-neutral-700 bg-neutral-900/30"
+                                isDragActive ? "border-[#FFB800] bg-[#FFB800]/5" : "hover:border-neutral-700 bg-neutral-900/30"
                             )}
                         >
                             <input {...getInputProps()} />
-                            <Upload className="w-3 h-3 text-neutral-600 mb-1" />
+                            <Upload className={cn("w-3 h-3 mb-1", isDragActive ? "text-[#FFB800]" : "text-neutral-700")} />
                             <p className="text-[9px] uppercase tracking-widest text-neutral-500">Subir</p>
                         </div>
                     )}
