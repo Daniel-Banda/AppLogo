@@ -133,7 +133,7 @@ function App() {
             DIGITAL.
           </h1>
           <p className="text-neutral-500 max-w-xl text-lg font-light leading-relaxed">
-            Arquitectura visual para la marca. Automatización inteligente de contraste y posicionamiento.
+            Coloca tu logo perfecto en segundos — automático, limpio y listo para publicar.
           </p>
         </header>
 
@@ -344,11 +344,6 @@ function App() {
               <p className="text-neutral-500 font-light leading-relaxed mb-6">
                 Optimiza el flujo de trabajo de tu marca con nuestra IA de posicionamiento. Diseñada para arquitectos visuales y fotógrafos que requieren precisión clínica en la marca de agua y protección de derechos de autor.
               </p>
-              <div className="flex gap-8 text-[10px] uppercase tracking-widest text-neutral-600 font-mono">
-                <span>// Contraste Dinámico</span>
-                <span>// IA Generativa</span>
-                <span>// Batch Processing</span>
-              </div>
             </div>
             <div className="space-y-8">
               <div>
@@ -360,7 +355,7 @@ function App() {
                 </ul>
               </div>
               <div className="pt-8 border-t border-neutral-900">
-                <p className="text-[10px] text-neutral-700 uppercase tracking-widest">THRTN | DEFINING THE UNKNOWN © 2026</p>
+                <p className="text-[10px] text-neutral-700 uppercase tracking-widest">THRTN | Ecosistemas Digitales Inteligentes © 2026</p>
               </div>
             </div>
           </div>
