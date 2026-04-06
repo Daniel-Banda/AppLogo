@@ -292,7 +292,7 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
             });
         } catch (error) {
             console.error(error);
-            alert('Failed to save image');
+            alert('Error al guardar la imagen');
         } finally {
             setIsProcessing(false);
         }
@@ -305,7 +305,7 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
                 <div className="p-4 border-b border-neutral-800 flex flex-wrap gap-4 justify-between items-center bg-neutral-900">
                     <h3 className="text-xl font-semibold text-white flex items-center gap-2">
                         <Move className="w-5 h-5 text-indigo-400" />
-                        <span className="hidden md:inline">Adjust Logo</span> Placement
+                        <span className="hidden md:inline">Ajustar Posición</span> del Logo
                     </h3>
                     <div className="flex gap-4 items-center flex-wrap">
                         <div className="flex items-center gap-4 mr-4">
@@ -315,20 +315,20 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
                                 className={`flex items-center gap-1.5 px-2 py-1 rounded-md text-xs transition-colors ${showGuides ? 'bg-indigo-600/20 text-indigo-400' : 'text-neutral-500 hover:text-neutral-300'}`}
                             >
                                 <Grid className="w-3.5 h-3.5" />
-                                Guides
+                                Guías
                             </button>
                             <button
                                 onClick={() => setShowBorder(!showBorder)}
                                 className={`flex items-center gap-1.5 px-2 py-1 rounded-md text-xs transition-colors ${showBorder ? 'bg-indigo-600/20 text-indigo-400' : 'text-neutral-500 hover:text-neutral-300'}`}
                             >
                                 <Maximize className="w-3.5 h-3.5" />
-                                Border
+                                Borde
                             </button>
 
                             <div className="w-px h-4 bg-neutral-800" />
 
                             <div className="flex flex-col gap-1 items-center">
-                                <span className="text-[10px] text-neutral-400 uppercase">Logo Size</span>
+                                <span className="text-[10px] text-neutral-400 uppercase">Tamaño del Logo</span>
                                 <input
                                     type="range"
                                     min="0.1"
@@ -341,7 +341,7 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
                             </div>
 
                             <div className="flex flex-col gap-1 items-center">
-                                <span className="text-[10px] text-neutral-400 uppercase">Zoom Canvas</span>
+                                <span className="text-[10px] text-neutral-400 uppercase">Zoom del Lienzo</span>
                                 <input
                                     type="range"
                                     min="0.5"
@@ -389,7 +389,7 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
                     {/* Sidebar Controls */}
                     <div className="w-full md:w-64 bg-neutral-900 border-t md:border-t-0 md:border-l border-neutral-800 p-4 space-y-4 md:space-y-6 overflow-y-auto max-h-[30vh] md:max-h-none shrink-0 border-t-2 border-t-black/20">
                         <div>
-                            <label className="text-sm font-medium text-neutral-400 mb-2 block">Select Logo</label>
+                            <label className="text-sm font-medium text-neutral-400 mb-2 block">Seleccionar Logo</label>
                             <div className="grid grid-cols-2 gap-2">
                                 {logos.map((logo, idx) => (
                                     <div
@@ -416,7 +416,7 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
                                 disabled={isProcessing}
                             >
                                 <Check className="w-4 h-4 mr-2" />
-                                Save Changes
+                                Guardar Cambios
                             </Button>
                         </div>
                     </div>

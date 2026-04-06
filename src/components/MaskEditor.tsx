@@ -92,7 +92,7 @@ export const MaskEditor: React.FC<MaskEditorProps> = ({ imageFile, onSave, onCan
                 const token = useAppStore.getState().huggingFaceToken;
 
                 if (!token) {
-                    alert("Please enter your Hugging Face Token in the settings.");
+                    alert("Por favor ingrese su Token de Hugging Face en la configuración.");
                     setIsProcessing(false);
                     return;
                 }
@@ -106,8 +106,8 @@ export const MaskEditor: React.FC<MaskEditorProps> = ({ imageFile, onSave, onCan
 
                 setProcessedImage(URL.createObjectURL(resultBlob));
             } catch (error: any) {
-                console.error("AI Edit failed", error);
-                alert(`Failed to process image: ${error.message || 'Unknown error'}`);
+                console.error("Falla en la edición por IA", error);
+                alert(`Error al procesar la imagen: ${error.message || 'Error desconocido'}`);
             } finally {
                 setIsProcessing(false);
             }
@@ -133,7 +133,7 @@ export const MaskEditor: React.FC<MaskEditorProps> = ({ imageFile, onSave, onCan
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
             <Card className="max-w-4xl w-full max-h-[90vh] flex flex-col p-4 bg-neutral-900 border-neutral-700">
                 <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-xl font-semibold text-white">Magic Eraser</h3>
+                    <h3 className="text-xl font-semibold text-white">Borrador Mágico</h3>
                     <div className="flex gap-2">
                         <Button variant="ghost" size="sm" onClick={onCancel}>
                             <X className="w-5 h-5" />
@@ -155,7 +155,7 @@ export const MaskEditor: React.FC<MaskEditorProps> = ({ imageFile, onSave, onCan
                     {processedImage && (
                         <img
                             src={processedImage}
-                            alt="Processed Result"
+                            alt="Resultado Procesado"
                             className={`absolute inset-0 w-full h-full object-contain pointer-events-none transition-opacity duration-200 ${showOriginal ? 'opacity-0' : 'opacity-100'}`}
                         />
                     )}
@@ -170,7 +170,7 @@ export const MaskEditor: React.FC<MaskEditorProps> = ({ imageFile, onSave, onCan
 
                 <div className="mt-4 flex justify-between items-center">
                     <div className="flex items-center gap-4">
-                        <span className="text-sm text-neutral-400">Brush Size: {brushSize}px</span>
+                        <span className="text-sm text-neutral-400">Tamaño del Pincel: {brushSize}px</span>
                         <input
                             type="range"
                             min="5"
@@ -187,7 +187,7 @@ export const MaskEditor: React.FC<MaskEditorProps> = ({ imageFile, onSave, onCan
                             <>
                                 <Button variant="secondary" onClick={handleDiscard}>
                                     <RefreshCcw className="w-4 h-4 mr-2" />
-                                    Discard
+                                    Descartar
                                 </Button>
                                 <Button
                                     variant="outline"
@@ -199,21 +199,21 @@ export const MaskEditor: React.FC<MaskEditorProps> = ({ imageFile, onSave, onCan
                                     onTouchEnd={() => setShowOriginal(false)}
                                 >
                                     <Eye className="w-4 h-4 mr-2" />
-                                    Hold to Compare
+                                    Mantener para Comparar
                                 </Button>
                                 <Button onClick={handleApply}>
                                     <Check className="w-4 h-4 mr-2" />
-                                    Apply Changes
+                                    Aplicar Cambios
                                 </Button>
                             </>
                         ) : (
                             <>
                                 <Button variant="secondary" onClick={onCancel} disabled={isProcessing}>
-                                    Cancel
+                                    Cancelar
                                 </Button>
                                 <Button onClick={handleErase} disabled={isProcessing} isLoading={isProcessing}>
                                     <Wand2 className="w-4 h-4 mr-2" />
-                                    Remove Object
+                                    Eliminar Objeto
                                 </Button>
                             </>
                         )}

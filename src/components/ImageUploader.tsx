@@ -13,7 +13,7 @@ export const ImageUploader = () => {
     const onDrop = useCallback((acceptedFiles: File[]) => {
         // Basic validation for 40 limit could be here or in store
         if (images.length + acceptedFiles.length > 100) {
-            alert('Maximum 100 images allowed.');
+            alert('Se permiten máximo 100 imágenes.');
             return;
         }
         addImages(acceptedFiles);
@@ -29,10 +29,10 @@ export const ImageUploader = () => {
     return (
         <div className="w-full space-y-4">
             <div className="flex justify-between items-center">
-                <h2 className="text-xl font-semibold text-white">Images ({images.length}/100)</h2>
+                <h2 className="text-xl font-semibold text-white">Imágenes ({images.length}/100)</h2>
                 {images.length > 0 && (
                     <Button variant="ghost" size="sm" onClick={() => images.forEach(() => removeImage(0))}>
-                        Clear All
+                        Limpiar Todo
                     </Button>
                 )}
             </div>
@@ -50,9 +50,9 @@ export const ImageUploader = () => {
                     <Upload className="w-8 h-8 text-indigo-400" />
                 </div>
                 <p className="text-lg font-medium text-white mb-1">
-                    {isDragActive ? "Drop images here" : "Drag & drop images here"}
+                    {isDragActive ? "Suelte las imágenes aquí" : "Arrastre y suelte las imágenes aquí"}
                 </p>
-                <p className="text-sm text-neutral-400">or click to browse</p>
+                <p className="text-sm text-neutral-400">o haga clic para buscar</p>
             </div>
 
             <AnimatePresence>

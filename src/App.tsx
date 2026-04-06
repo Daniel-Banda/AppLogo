@@ -33,8 +33,8 @@ function App() {
       );
       setProcessedImages(results);
     } catch (error) {
-      console.error('Processing failed:', error);
-      alert('An error occurred during processing.');
+      console.error('Error al procesar:', error);
+      alert('Ocurrió un error durante el procesamiento.');
     } finally {
       setProcessing(false);
     }
@@ -114,7 +114,7 @@ function App() {
       }
     } catch (e) {
       console.error(e);
-      alert("Error generating download");
+      alert("Error al generar la descarga");
     } finally {
       setIsDownloading(false);
     }
@@ -129,11 +129,11 @@ function App() {
       <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
         <header className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-            Smart Logo Placer
+            Colocador Inteligente de Logos
           </h1>
           <p className="text-neutral-400 max-w-2xl mx-auto text-lg">
-            Automatically place your logo on multiple images with intelligent contrast detection.
-            Upload your logos and reposition them exactly where you want.
+            Coloca automáticamente tu logo en múltiples imágenes con detección inteligente de contraste.
+            Sube tus logos y reposiciónalos exactamente donde quieras.
           </p>
         </header>
 
@@ -144,13 +144,13 @@ function App() {
             <div className="bg-neutral-800/30 border border-neutral-700/50 rounded-2xl p-6 backdrop-blur-sm sticky top-8">
               <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
                 <Wand2 className="w-5 h-5 text-indigo-400" />
-                Controls
+                Controles
               </h2>
 
               <div className="space-y-6">
                 <section>
                   <label className="block text-sm font-medium text-neutral-300 mb-3">
-                    1. Upload Logo
+                    1. Subir Logo
                   </label>
                   <LogoUploader />
                 </section>
@@ -160,7 +160,7 @@ function App() {
                 <section>
                   <div className="flex justify-between items-center mb-3">
                     <label className="block text-sm font-medium text-neutral-300">
-                      Logo Scale
+                      Escala del Logo
                     </label>
                     <span className="text-xs text-neutral-400">{Math.round(logoScale * 100)}%</span>
                   </div>
@@ -177,7 +177,7 @@ function App() {
 
                 <section>
                   <label className="block text-sm font-medium text-neutral-300 mb-3">
-                    2. Actions
+                    2. Acciones
                   </label>
                   <div className="grid grid-cols-1 gap-3">
                     <Button
@@ -187,7 +187,7 @@ function App() {
                       isLoading={isProcessing}
                     >
                       <Wand2 className="w-4 h-4" />
-                      Auto Place
+                      Auto Colocar
                     </Button>
                   </div>
                 </section>
@@ -197,7 +197,7 @@ function App() {
                 <section>
                   <div className="flex items-center gap-2 mb-3 text-neutral-300">
                     <Settings2 className="w-4 h-4" />
-                    <span className="text-sm font-medium">Download Settings</span>
+                    <span className="text-sm font-medium">Ajustes de Descarga</span>
                   </div>
 
                   <div className="space-y-3">
@@ -219,7 +219,7 @@ function App() {
                     {downloadFormat === 'image/jpeg' && (
                       <div>
                         <div className="flex justify-between items-center mb-1">
-                          <span className="text-xs text-neutral-400">Quality</span>
+                          <span className="text-xs text-neutral-400">Calidad</span>
                           <span className="text-xs text-neutral-400">{Math.round(downloadQuality * 100)}%</span>
                         </div>
                         <input
@@ -244,7 +244,7 @@ function App() {
                       isLoading={isDownloading}
                     >
                       <Download className="w-4 h-4" />
-                      Download
+                      Descargar
                     </Button>
                     <Button
                       variant="ghost"
@@ -253,7 +253,7 @@ function App() {
                       onClick={handleReset}
                     >
                       <RotateCcw className="w-4 h-4" />
-                      Reset
+                      Reiniciar
                     </Button>
                   </div>
                 </section>
@@ -268,7 +268,7 @@ function App() {
               {processedImages.length > 0 ? (
                 <div>
                   <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-xl font-semibold text-white">Processed Images ({processedImages.length})</h2>
+                    <h2 className="text-xl font-semibold text-white">Imágenes Procesadas ({processedImages.length})</h2>
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {processedImages.map((img, idx) => (

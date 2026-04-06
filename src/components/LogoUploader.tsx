@@ -11,7 +11,7 @@ export const LogoUploader = () => {
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
         if (logos.length + acceptedFiles.length > 3) {
-            alert('Maximium 3 logos allowed.');
+            alert('Se permiten máximo 3 logos.');
             return;
         }
         addLogos(acceptedFiles);
@@ -31,8 +31,8 @@ export const LogoUploader = () => {
             {/* Active Logos */}
             <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-medium text-neutral-300">Selected Logos ({logos.length}/3)</h3>
-                    <p className="text-xs text-neutral-500">Auto-selects best match</p>
+                    <h3 className="text-sm font-medium text-neutral-300">Logos Seleccionados ({logos.length}/3)</h3>
+                    <p className="text-xs text-neutral-500">Selecciona el mejor automáticamente</p>
                 </div>
 
                 <div className="grid grid-cols-3 gap-2">
@@ -68,7 +68,7 @@ export const LogoUploader = () => {
                             <div className="p-1.5 bg-neutral-800 rounded-full mb-1">
                                 <Upload className="w-3 h-3 text-indigo-400" />
                             </div>
-                            <p className="text-xs font-medium text-white">Upload</p>
+                            <p className="text-xs font-medium text-white">Subir</p>
                         </div>
                     )}
                 </div>
