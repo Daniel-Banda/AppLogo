@@ -129,7 +129,7 @@ function App() {
       <div className="max-w-6xl mx-auto px-6 py-12 md:py-20">
         <header className="mb-20 text-left border-l-2 border-white pl-6">
           <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">
-            COLOCADOR<br/>
+            COLOCADOR<br />
             DIGITAL.
           </h1>
           <p className="text-neutral-500 max-w-xl text-lg font-light leading-relaxed">
@@ -223,7 +223,7 @@ function App() {
                     {downloadFormat === 'image/jpeg' && (
                       <div>
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-[10px] uppercase tracking-widest text-[#FFB800] font-bold">Compresión</span>
+                          <span className="text-[10px] uppercase tracking-widest text-[#FFB800] font-bold">Calidad</span>
                           <span className="text-[10px] font-mono text-white">{Math.round(downloadQuality * 100)}%</span>
                         </div>
                         <input
