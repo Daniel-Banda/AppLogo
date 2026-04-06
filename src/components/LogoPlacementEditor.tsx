@@ -136,9 +136,9 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
 
         // Draw highlight border if enabled or hovering/dragging
         if (!isProcessing && (showBorder || isHovering || isDragging)) {
-            ctx.strokeStyle = showBorder ? '#6366f1' : 'rgba(99, 102, 241, 0.5)'; // Indigo-500
-            ctx.lineWidth = 2 / scale;
-            ctx.setLineDash([5 / scale, 5 / scale]);
+            ctx.strokeStyle = showBorder ? '#ffffff' : 'rgba(255, 255, 255, 0.4)';
+            ctx.lineWidth = 1 / scale;
+            ctx.setLineDash([10 / scale, 5 / scale]);
             ctx.strokeRect(position.x, position.y, size.width, size.height);
         }
 
@@ -300,35 +300,35 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
 
     return (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" onClick={(e) => e.stopPropagation()}>
-            <Card className="max-w-6xl w-full h-[90vh] flex flex-col p-0 bg-neutral-900 border-neutral-700 overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <Card className="max-w-6xl w-full h-[90vh] flex flex-col p-0 bg-black border-neutral-800 rounded-none overflow-hidden" onClick={(e) => e.stopPropagation()}>
                 {/* Header */}
-                <div className="p-4 border-b border-neutral-800 flex flex-wrap gap-4 justify-between items-center bg-neutral-900">
-                    <h3 className="text-xl font-semibold text-white flex items-center gap-2">
-                        <Move className="w-5 h-5 text-indigo-400" />
-                        <span className="hidden md:inline">Ajustar Posición</span> del Logo
+                <div className="p-6 border-b border-neutral-900 flex flex-wrap gap-4 justify-between items-center bg-black">
+                    <h3 className="text-sm uppercase tracking-[0.2em] font-medium text-white flex items-center gap-3">
+                        <Move className="w-4 h-4 text-neutral-500" />
+                        <span className="hidden md:inline">Ajustar Posición</span> // Logo
                     </h3>
                     <div className="flex gap-4 items-center flex-wrap">
                         <div className="flex items-center gap-4 mr-4">
                             {/* Toggles */}
-                            <button
+                             <button
                                 onClick={() => setShowGuides(!showGuides)}
-                                className={`flex items-center gap-1.5 px-2 py-1 rounded-md text-xs transition-colors ${showGuides ? 'bg-indigo-600/20 text-indigo-400' : 'text-neutral-500 hover:text-neutral-300'}`}
+                                className={`flex items-center gap-2 px-3 py-1 rounded-none text-[10px] uppercase tracking-widest transition-all ${showGuides ? 'bg-white text-black' : 'text-neutral-500 hover:text-neutral-300'}`}
                             >
-                                <Grid className="w-3.5 h-3.5" />
+                                <Grid className="w-3 h-3" />
                                 Guías
                             </button>
                             <button
                                 onClick={() => setShowBorder(!showBorder)}
-                                className={`flex items-center gap-1.5 px-2 py-1 rounded-md text-xs transition-colors ${showBorder ? 'bg-indigo-600/20 text-indigo-400' : 'text-neutral-500 hover:text-neutral-300'}`}
+                                className={`flex items-center gap-2 px-3 py-1 rounded-none text-[10px] uppercase tracking-widest transition-all ${showBorder ? 'bg-white text-black' : 'text-neutral-500 hover:text-neutral-300'}`}
                             >
-                                <Maximize className="w-3.5 h-3.5" />
+                                <Maximize className="w-3 h-3" />
                                 Borde
                             </button>
 
                             <div className="w-px h-4 bg-neutral-800" />
 
-                            <div className="flex flex-col gap-1 items-center">
-                                <span className="text-[10px] text-neutral-400 uppercase">Tamaño del Logo</span>
+                             <div className="flex flex-col gap-1 items-center">
+                                <span className="text-[9px] text-neutral-600 uppercase tracking-widest">Escala</span>
                                 <input
                                     type="range"
                                     min="0.1"
@@ -336,12 +336,12 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
                                     step="0.05"
                                     defaultValue="1"
                                     onChange={(e) => handleScaleLogo(parseFloat(e.target.value))}
-                                    className="w-16 md:w-24 accent-indigo-500 cursor-pointer"
+                                    className="w-16 md:w-24 accent-white h-1 bg-neutral-900 rounded-none appearance-none"
                                 />
                             </div>
 
-                            <div className="flex flex-col gap-1 items-center">
-                                <span className="text-[10px] text-neutral-400 uppercase">Zoom del Lienzo</span>
+                             <div className="flex flex-col gap-1 items-center">
+                                <span className="text-[9px] text-neutral-600 uppercase tracking-widest">Zoom</span>
                                 <input
                                     type="range"
                                     min="0.5"
@@ -349,7 +349,7 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
                                     step="0.1"
                                     value={viewportZoom}
                                     onChange={(e) => setViewportZoom(parseFloat(e.target.value))}
-                                    className="w-16 md:w-24 accent-pink-500 cursor-pointer"
+                                    className="w-16 md:w-24 accent-white h-1 bg-neutral-900 rounded-none appearance-none"
                                 />
                             </div>
                         </div>
@@ -386,11 +386,11 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
 
                     </div>
 
-                    {/* Sidebar Controls */}
-                    <div className="w-full md:w-64 bg-neutral-900 border-t md:border-t-0 md:border-l border-neutral-800 p-4 space-y-4 md:space-y-6 overflow-y-auto max-h-[30vh] md:max-h-none shrink-0 border-t-2 border-t-black/20">
+                     {/* Sidebar Controls */}
+                    <div className="w-full md:w-72 bg-black border-t md:border-t-0 md:border-l border-neutral-900 p-8 space-y-8 overflow-y-auto max-h-[30vh] md:max-h-none shrink-0">
                         <div>
-                            <label className="text-sm font-medium text-neutral-400 mb-2 block">Seleccionar Logo</label>
-                            <div className="grid grid-cols-2 gap-2">
+                            <label className="text-[10px] uppercase tracking-widest font-medium text-neutral-500 mb-6 block">Variante de Logo</label>
+                            <div className="grid grid-cols-2 gap-3">
                                 {logos.map((logo, idx) => (
                                     <div
                                         key={idx}
@@ -400,8 +400,8 @@ export const LogoPlacementEditor: React.FC<LogoPlacementEditorProps> = ({
                                             : 'border-neutral-700 hover:border-neutral-600'
                                             }`}
                                     >
-                                        <div className="aspect-square flex items-center justify-center bg-neutral-800 rounded mb-1 p-1">
-                                            <img src={URL.createObjectURL(logo)} className="max-w-full max-h-full object-contain" alt="Logo option" />
+                                         <div className="aspect-square flex items-center justify-center bg-neutral-950 border border-neutral-900 rounded-none mb-1 p-2">
+                                            <img src={URL.createObjectURL(logo)} className="max-w-full max-h-full object-contain grayscale brightness-200" alt="Logo option" />
                                         </div>
                                     </div>
                                 ))}

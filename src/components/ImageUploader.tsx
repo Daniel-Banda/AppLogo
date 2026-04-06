@@ -28,11 +28,11 @@ export const ImageUploader = () => {
 
     return (
         <div className="w-full space-y-4">
-            <div className="flex justify-between items-center">
-                <h2 className="text-xl font-semibold text-white">Imágenes ({images.length}/100)</h2>
+            <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xs uppercase tracking-[0.2em] font-medium text-neutral-500">Imágenes // {images.length} de 100</h2>
                 {images.length > 0 && (
-                    <Button variant="ghost" size="sm" onClick={() => images.forEach(() => removeImage(0))}>
-                        Limpiar Todo
+                    <Button variant="ghost" size="sm" onClick={() => images.forEach(() => removeImage(0))} className="text-[10px] uppercase tracking-widest">
+                        Eliminar Todas
                     </Button>
                 )}
             </div>
@@ -40,19 +40,19 @@ export const ImageUploader = () => {
             <div
                 {...getRootProps()}
                 className={cn(
-                    "border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center transition-colors cursor-pointer min-h-[200px]",
-                    isDragActive ? "border-indigo-500 bg-indigo-500/10" : "border-neutral-700 hover:border-neutral-600 bg-neutral-800/30",
+                    "border border-dashed p-12 flex flex-col items-center justify-center transition-all duration-500 cursor-crosshair min-h-[300px] border-neutral-800",
+                    isDragActive ? "border-white bg-white/5" : "hover:border-neutral-700 bg-black/40",
                     images.length >= 100 && "opacity-50 cursor-not-allowed"
                 )}
             >
                 <input {...getInputProps()} />
-                <div className="p-4 bg-neutral-800 rounded-full mb-4">
-                    <Upload className="w-8 h-8 text-indigo-400" />
+                <div className="p-6 border border-neutral-800 rounded-none mb-6">
+                    <Upload className="w-6 h-6 text-neutral-600" />
                 </div>
-                <p className="text-lg font-medium text-white mb-1">
-                    {isDragActive ? "Suelte las imágenes aquí" : "Arrastre y suelte las imágenes aquí"}
+                <p className="text-sm uppercase tracking-widest font-light text-neutral-400 mb-2">
+                    {isDragActive ? "Suelte para Subir" : "Arrastre Archivos Originales"}
                 </p>
-                <p className="text-sm text-neutral-400">o haga clic para buscar</p>
+                <p className="text-[10px] uppercase tracking-widest text-neutral-600">O haga clic para navegar</p>
             </div>
 
             <AnimatePresence>

@@ -29,29 +29,29 @@ export const LogoUploader = () => {
     return (
         <div className="space-y-6">
             {/* Active Logos */}
-            <div className="space-y-3">
+            <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-medium text-neutral-300">Logos Seleccionados ({logos.length}/3)</h3>
-                    <p className="text-xs text-neutral-500">Selecciona el mejor automáticamente</p>
+                    <h3 className="text-[10px] uppercase tracking-widest font-medium text-neutral-500">Biblioteca // {logos.length}/3</h3>
+                    <p className="text-[9px] uppercase tracking-tighter text-neutral-600">Auto-Contraste</p>
                 </div>
 
                 <div className="grid grid-cols-3 gap-2">
                     {logos.map((file, index) => (
-                        <Card key={`${file.name}-${index}`} className="p-2 relative group flex flex-col items-center justify-center bg-neutral-800 border-neutral-700 aspect-square">
-                            <div className="w-full h-full flex items-center justify-center p-1">
+                        <Card key={`${file.name}-${index}`} className="p-1 relative group flex flex-col items-center justify-center bg-black border-neutral-800 aspect-square">
+                            <div className="w-full h-full flex items-center justify-center p-2">
                                 <img
                                     src={URL.createObjectURL(file)}
                                     alt="Logo"
-                                    className="max-w-full max-h-full object-contain"
+                                    className="max-w-full max-h-full object-contain grayscale brightness-200"
                                 />
                             </div>
                             <Button
                                 variant="ghost"
                                 size="sm"
-                                className="absolute -top-2 -right-2 w-6 h-6 p-0 rounded-full bg-neutral-700 text-neutral-400 hover:text-white hover:bg-neutral-600 border border-neutral-600"
+                                className="absolute -top-1 -right-1 w-5 h-5 p-0 rounded-none bg-black text-neutral-500 hover:text-white border border-neutral-800"
                                 onClick={() => removeLogo(index)}
                             >
-                                <X className="w-3 h-3" />
+                                <X className="w-2.5 h-2.5" />
                             </Button>
                         </Card>
                     ))}
@@ -60,20 +60,17 @@ export const LogoUploader = () => {
                         <div
                             {...getRootProps()}
                             className={cn(
-                                "border-2 border-dashed rounded-xl p-2 flex flex-col items-center justify-center transition-colors cursor-pointer text-center aspect-square",
-                                isDragActive ? "border-indigo-500 bg-indigo-500/10" : "border-neutral-700 hover:border-neutral-600 bg-neutral-800/30"
+                                "border border-dashed p-2 flex flex-col items-center justify-center transition-all cursor-crosshair text-center aspect-square border-neutral-800",
+                                isDragActive ? "border-white bg-white/5" : "hover:border-neutral-700 bg-neutral-900/30"
                             )}
                         >
                             <input {...getInputProps()} />
-                            <div className="p-1.5 bg-neutral-800 rounded-full mb-1">
-                                <Upload className="w-3 h-3 text-indigo-400" />
-                            </div>
-                            <p className="text-xs font-medium text-white">Subir</p>
+                            <Upload className="w-3 h-3 text-neutral-600 mb-1" />
+                            <p className="text-[9px] uppercase tracking-widest text-neutral-500">Subir</p>
                         </div>
                     )}
                 </div>
             </div>
-
         </div>
     );
 };

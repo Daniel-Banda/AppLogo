@@ -130,18 +130,21 @@ export const MaskEditor: React.FC<MaskEditorProps> = ({ imageFile, onSave, onCan
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-            <Card className="max-w-4xl w-full max-h-[90vh] flex flex-col p-4 bg-neutral-900 border-neutral-700">
-                <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-xl font-semibold text-white">Borrador Mágico</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4">
+            <Card className="max-w-4xl w-full max-h-[90vh] flex flex-col p-8 bg-black border border-neutral-900 rounded-none">
+                <div className="flex justify-between items-center mb-8 border-b border-neutral-900 pb-6">
+                    <h3 className="text-sm uppercase tracking-[0.2em] font-medium text-white flex items-center gap-3">
+                        <Wand2 className="w-4 h-4 text-neutral-500" />
+                        Borrador // Mágico
+                    </h3>
                     <div className="flex gap-2">
-                        <Button variant="ghost" size="sm" onClick={onCancel}>
+                        <Button variant="ghost" size="sm" onClick={onCancel} className="p-2">
                             <X className="w-5 h-5" />
                         </Button>
                     </div>
                 </div>
 
-                <div className="flex-1 overflow-hidden relative flex items-center justify-center bg-neutral-950 rounded-lg group">
+                <div className="flex-1 overflow-hidden relative flex items-center justify-center bg-neutral-950 rounded-none group border border-neutral-900">
                     <canvas
                         ref={canvasRef}
                         className={`max-w-full max-h-full object-contain ${!processedImage ? 'cursor-crosshair' : 'cursor-default'}`}
@@ -162,15 +165,18 @@ export const MaskEditor: React.FC<MaskEditorProps> = ({ imageFile, onSave, onCan
 
                     {/* Hint Overlay when holding compare */}
                     {processedImage && showOriginal && (
-                        <div className="absolute top-4 left-4 bg-black/60 text-white text-xs px-2 py-1 rounded pointer-events-none">
+                        <div className="absolute top-4 left-4 bg-black/80 border border-white/20 text-[10px] uppercase tracking-widest text-white px-3 py-1 rounded-none pointer-events-none">
                             Original
                         </div>
                     )}
                 </div>
 
-                <div className="mt-4 flex justify-between items-center">
-                    <div className="flex items-center gap-4">
-                        <span className="text-sm text-neutral-400">Tamaño del Pincel: {brushSize}px</span>
+                <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="flex flex-col gap-2 w-full md:w-auto">
+                        <div className="flex justify-between md:justify-start items-center gap-6">
+                            <span className="text-[10px] uppercase tracking-widest text-neutral-500">Pincel</span>
+                            <span className="text-[10px] font-mono text-neutral-400">{brushSize}px</span>
+                        </div>
                         <input
                             type="range"
                             min="5"
@@ -178,7 +184,7 @@ export const MaskEditor: React.FC<MaskEditorProps> = ({ imageFile, onSave, onCan
                             value={brushSize}
                             onChange={(e) => setBrushSize(Number(e.target.value))}
                             disabled={!!processedImage}
-                            className="w-32 accent-indigo-500 disabled:opacity-50"
+                            className="w-full md:w-48 accent-white h-1 bg-neutral-900 rounded-none appearance-none disabled:opacity-30"
                         />
                     </div>
 

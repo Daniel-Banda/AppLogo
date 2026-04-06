@@ -125,32 +125,32 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-900 text-white font-sans selection:bg-indigo-500/30">
-      <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
-        <header className="mb-12 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-            Colocador Inteligente de Logos
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-white/20">
+      <div className="max-w-6xl mx-auto px-6 py-12 md:py-20">
+        <header className="mb-20 text-left border-l-2 border-white pl-6">
+          <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">
+            COLOCADOR<br/>
+            DIGITAL.
           </h1>
-          <p className="text-neutral-400 max-w-2xl mx-auto text-lg">
-            Coloca automáticamente tu logo en múltiples imágenes con detección inteligente de contraste.
-            Sube tus logos y reposiciónalos exactamente donde quieras.
+          <p className="text-neutral-500 max-w-xl text-lg font-light leading-relaxed">
+            Arquitectura visual para la marca. Automatización inteligente de contraste y posicionamiento.
           </p>
         </header>
 
 
-        <main className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <main className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Sidebar / Controls */}
-          <div className="lg:col-span-1 space-y-6">
-            <div className="bg-neutral-800/30 border border-neutral-700/50 rounded-2xl p-6 backdrop-blur-sm sticky top-8">
-              <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
-                <Wand2 className="w-5 h-5 text-indigo-400" />
-                Controles
+          <div className="lg:col-span-4 space-y-8">
+            <div className="bg-neutral-900/50 border border-neutral-800 rounded-none p-8 sticky top-12">
+              <h2 className="text-sm uppercase tracking-widest font-medium mb-8 flex items-center gap-3 text-neutral-400">
+                <Wand2 className="w-4 h-4" />
+                Configuración
               </h2>
 
               <div className="space-y-6">
                 <section>
-                  <label className="block text-sm font-medium text-neutral-300 mb-3">
-                    1. Subir Logo
+                  <label className="block text-[10px] uppercase tracking-widest font-medium text-neutral-500 mb-4">
+                    01. Logo de Marca
                   </label>
                   <LogoUploader />
                 </section>
@@ -158,11 +158,11 @@ function App() {
                 <div className="h-px bg-neutral-700/50" />
 
                 <section>
-                  <div className="flex justify-between items-center mb-3">
-                    <label className="block text-sm font-medium text-neutral-300">
-                      Escala del Logo
+                  <div className="flex justify-between items-center mb-4">
+                    <label className="block text-[10px] uppercase tracking-widest font-medium text-neutral-500">
+                      Escala Relativa
                     </label>
-                    <span className="text-xs text-neutral-400">{Math.round(logoScale * 100)}%</span>
+                    <span className="text-[10px] font-mono text-neutral-400">{Math.round(logoScale * 100)}%</span>
                   </div>
                   <input
                     type="range"
@@ -171,13 +171,13 @@ function App() {
                     step="0.01"
                     value={logoScale}
                     onChange={(e) => setLogoScale(parseFloat(e.target.value))}
-                    className="w-full accent-indigo-500 cursor-pointer"
+                    className="w-full accent-white cursor-crosshair h-1 bg-neutral-800 rounded-none appearance-none"
                   />
                 </section>
 
                 <section>
-                  <label className="block text-sm font-medium text-neutral-300 mb-3">
-                    2. Acciones
+                  <label className="block text-[10px] uppercase tracking-widest font-medium text-neutral-500 mb-4">
+                    02. Procesamiento
                   </label>
                   <div className="grid grid-cols-1 gap-3">
                     <Button
@@ -195,21 +195,21 @@ function App() {
                 <div className="h-px bg-neutral-700/50" />
 
                 <section>
-                  <div className="flex items-center gap-2 mb-3 text-neutral-300">
+                  <div className="flex items-center gap-3 mb-4 text-neutral-400">
                     <Settings2 className="w-4 h-4" />
-                    <span className="text-sm font-medium">Ajustes de Descarga</span>
+                    <span className="text-[10px] uppercase tracking-widest font-medium">Salida de Archivo</span>
                   </div>
 
                   <div className="space-y-3">
-                    <div className="flex bg-neutral-900 rounded-lg p-1 border border-neutral-700">
+                    <div className="flex bg-black rounded-none p-1 border border-neutral-800">
                       <button
-                        className={`flex-1 text-xs py-1.5 rounded-md transition-colors ${downloadFormat === 'image/jpeg' ? 'bg-indigo-600 text-white' : 'text-neutral-400 hover:text-white'}`}
+                        className={`flex-1 text-[10px] py-2 rounded-none transition-all ${downloadFormat === 'image/jpeg' ? 'bg-white text-black' : 'text-neutral-500 hover:text-white'}`}
                         onClick={() => setDownloadFormat('image/jpeg')}
                       >
                         JPEG
                       </button>
                       <button
-                        className={`flex-1 text-xs py-1.5 rounded-md transition-colors ${downloadFormat === 'image/png' ? 'bg-indigo-600 text-white' : 'text-neutral-400 hover:text-white'}`}
+                        className={`flex-1 text-[10px] py-2 rounded-none transition-all ${downloadFormat === 'image/png' ? 'bg-white text-black' : 'text-neutral-500 hover:text-white'}`}
                         onClick={() => setDownloadFormat('image/png')}
                       >
                         PNG
@@ -218,9 +218,9 @@ function App() {
 
                     {downloadFormat === 'image/jpeg' && (
                       <div>
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="text-xs text-neutral-400">Calidad</span>
-                          <span className="text-xs text-neutral-400">{Math.round(downloadQuality * 100)}%</span>
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-[10px] uppercase tracking-widest text-neutral-500">Compresión</span>
+                          <span className="text-[10px] font-mono text-neutral-400">{Math.round(downloadQuality * 100)}%</span>
                         </div>
                         <input
                           type="range"
@@ -229,7 +229,7 @@ function App() {
                           step="0.05"
                           value={downloadQuality}
                           onChange={(e) => setDownloadQuality(parseFloat(e.target.value))}
-                          className="w-full accent-indigo-500"
+                          className="w-full accent-white h-1 bg-neutral-800 rounded-none appearance-none"
                         />
                       </div>
                     )}
@@ -263,12 +263,12 @@ function App() {
           </div>
 
           {/* Main Content / Gallery */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="bg-neutral-800/30 border border-neutral-700/50 rounded-2xl p-6 backdrop-blur-sm min-h-[600px]">
+          <div className="lg:col-span-8 space-y-8">
+            <div className="bg-neutral-900/30 border border-neutral-800 rounded-none p-10 min-h-[700px]">
               {processedImages.length > 0 ? (
                 <div>
-                  <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-xl font-semibold text-white">Imágenes Procesadas ({processedImages.length})</h2>
+                  <div className="flex justify-between items-center mb-10 border-b border-neutral-800 pb-6">
+                    <h2 className="text-sm uppercase tracking-[0.2em] font-medium text-neutral-400">Galería Procesada // {processedImages.length}</h2>
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {processedImages.map((img, idx) => (
